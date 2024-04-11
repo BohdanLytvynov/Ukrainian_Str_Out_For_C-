@@ -214,14 +214,14 @@ su::~ukrString()
 
 #pragma region public static functions
 
-void su::ukrStrCopy(ukrString& src, ukrString dest, int start, int length)
+void su::ukrStrCopy(ukrString& src, ukrString dest, int start, int end)
 {
 	if (src.getLength() == 0) return;
 
-	if (start < 0 || start > length - 1)
+	if (start < 0 || start > end - 1)
 		throw std::runtime_error("Incorrect range! Start index is greater then end index!");
 
-	for (int i = start; i < length; i++)
+	for (int i = start; i < end; i++)
 	{
 		dest[i] = src[i];
 	}
