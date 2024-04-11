@@ -86,6 +86,8 @@ namespace strings
 		/// <returns>The same Input stream object</returns>
 		static std::istream& getLine(std::istream& is, ukrString& output);
 
+		static std::ifstream& getLine(std::ifstream& ifs, ukrString& output);
+
 #pragma endregion
 
 #pragma region Ctors
@@ -140,14 +142,7 @@ namespace strings
 		/// <param name="cstr">Source c-string</param>
 		/// <returns>ukrString</returns>
 		ukrString& operator = (const char cstr[]);
-
-		friend std::ofstream& operator << (std::ofstream& ofs, const ukrString& string)
-		{
-			
-
-			return ofs;
-		}
-
+		
 		/// <summary>
 		/// Output operator to the console
 		/// </summary>
@@ -168,7 +163,6 @@ namespace strings
 
 			return os;
 		}
-
 
 		/// <summary>
 		/// Overloaded output operator for constant ukrStrings
@@ -207,6 +201,33 @@ namespace strings
 
 			return is;
 		}
+
+		/////////////////////Filestream operators
+
+		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str) 
+		{
+			size_t size = str.getLength();
+
+			for (size_t i = 0; i < size; i++)
+			{
+				ofs << str[i];
+			}
+
+			return ofs;
+		}
+
+		friend std::ofstream& operator <<(std::ofstream& ofs, ukrString& str)
+		{
+			size_t size = str.getLength();
+
+			for (size_t i = 0; i < size; i++)
+			{
+				ofs << str[i];
+			}
+
+			return ofs;
+		}
+
 		/// <summary>
 		/// Converts ukrString to the std::string
 		/// </summary>

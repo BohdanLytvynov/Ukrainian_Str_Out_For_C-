@@ -262,6 +262,22 @@ std::istream& su::getLine(std::istream& is, su& output)
 	return is;
 }
 
+std::ifstream& su::getLine(std::ifstream& ifs, su& output)
+{
+	std::string temp;
+
+	std::getline(ifs, temp);
+
+	if (output.m_chars.isAllocated())
+	{
+		output.m_chars.deAllocate();
+	}
+
+	output.m_chars.allocate_memory_block(temp.c_str(), temp.size());
+
+	return ifs;
+}
+
 #pragma endregion
 
 
