@@ -127,12 +127,30 @@ namespace strings
 		/// <param name="v">Input parametr</param>
 		explicit ukrString(std::vector<char>& v);
 
-		explicit ukrString(int numbeer);
+		/// <summary>
+		/// Convert int number to ukrString
+		/// </summary>
+		/// <param name="number">Input number for convertion</param>
+		explicit ukrString(int number);
 
+		/// <summary>
+		/// Convert float number to ukrString 
+		/// </summary>
+		/// <param name="number">Input number for convertion</param>
 		explicit ukrString(float number);
 
+		/// <summary>
+		/// Convert doube number to ukrString
+		/// </summary>
+		/// <param name="number">Input number for convertion</param>
 		explicit ukrString(double number);
 
+		/// <summary>
+		/// Converter for custom type
+		/// </summary>
+		/// <typeparam name="Tin">Type to convert to</typeparam>
+		/// <param name="obj">Input object for convertion</param>
+		/// <param name="strFiller">Function pointer that provides logic for convertion object of Tin type to ukrString</param>
 		template<class Tin>
 		explicit ukrString(const Tin& obj, std::function<void(Tin& obj, ukrString& cur)> strFiller)
 		{
