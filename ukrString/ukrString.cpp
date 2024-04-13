@@ -320,7 +320,39 @@ std::ifstream& su::getLine(std::ifstream& ifs, su& output)
 void su::Split(strings::ukrString& str, wordSet& word_Set,
 	const char delim[])
 {
+	bool delim_found = false;
 
+	size_t length = str.getLength();
+
+	Word word;
+
+	for (size_t i = 0; i < length; i++)//O(n * sizeof(delim))
+	{
+		if (!Compare(str[i], delim) || i == 0)//Space not found or we are at the begining create Word
+		{
+			word.push_back(str[i]);
+
+			delim_found = false;
+		}
+		else//delim_found found
+		{
+			if (!delim_found)
+			{
+				word_Set.push_back(word);
+
+				word.clear();
+			}
+
+			delim_found = true;
+		}
+
+		if (i == length - 1)//End reached
+		{
+			word_Set.push_back(word);
+
+			word.clear();
+		}
+	}
 }
 
 #pragma endregion
