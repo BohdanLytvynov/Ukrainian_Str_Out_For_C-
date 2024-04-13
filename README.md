@@ -17,7 +17,7 @@ For Linker .ob file must be used.
 
 There is an ukrString.h file in the include folder. It can be used to provide all the opportunities of this structure. All the functions in this structure are commented properly.
 
-### Tets
+### Tests
 All the units tests were performed. Their resuls can be seen in a test project. 
 
 
