@@ -99,6 +99,27 @@ su::ukrString(std::vector<char>& v) : ukrString()
 	m_chars.allocate_memory_block(v);
 }
 
+su::ukrString(int number)
+{		
+	std::string t = std::to_string(number);
+
+	m_chars.allocate_memory_block(t.c_str(), t.size());
+}
+
+su::ukrString(float number)
+{
+	std::string t = std::to_string(number);
+
+	m_chars.allocate_memory_block(t.c_str(), t.size());
+}
+
+su::ukrString(double number)
+{
+	std::string t = std::to_string(number);
+
+	m_chars.allocate_memory_block(t.c_str(), t.size());
+}
+
 #pragma endregion
 
 #pragma region Operators

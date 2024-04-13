@@ -29,6 +29,8 @@ void ExcepTest()
 	catch (const std::exception&)
 	{
 		return;
+
+
 	}
 }
 

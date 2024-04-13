@@ -126,23 +126,6 @@ namespace strings
 		/// </summary>
 		/// <param name="v">Input parametr</param>
 		explicit ukrString(std::vector<char>& v);
-
-		explicit ukrString(int numbeer);
-
-		explicit ukrString(float number);
-
-		explicit ukrString(double number);
-
-		template<class Tin>
-		explicit ukrString(const Tin& obj, std::function<void(Tin& obj, ukrString& cur)> strFiller)
-		{
-			if (!strFiller) throw std::runtime_error("strFiller parametr is not set!");
-
-			strFiller(obj, this);
-		}
-
-		
-		
 #pragma endregion
 
 #pragma region Operators
