@@ -6,10 +6,15 @@
 #include<iostream>
 #include<fstream>
 #include"smart_alloc.h"
+#include<vector>
+
 namespace strings
-{
+{	
 	struct ukrString
 	{
+		using Word = std::vector<char>;
+
+		using wordSet = std::vector<Word>;
 
 #pragma region Interface functions
 		/// <summary>
@@ -86,7 +91,21 @@ namespace strings
 		/// <returns>The same Input stream object</returns>
 		static std::istream& getLine(std::istream& is, ukrString& output);
 
+		/// <summary>
+		/// Function that gets line from the file 
+		/// </summary>
+		/// <param name="ifs">Input file stream object</param>
+		/// <param name="output">ukrString that was get from the file</param>
+		/// <returns></returns>
 		static std::ifstream& getLine(std::ifstream& ifs, ukrString& output);
+
+#pragma region ukrString extension functions 
+
+		static void Split(strings::ukrString& str, wordSet& word_Set,
+			const char delim[]);
+
+#pragma endregion
+
 
 #pragma endregion
 
@@ -326,6 +345,13 @@ namespace strings
 		bool m_use_for_input;//Indicates wether symbol offset is enabled
 
 #pragma endregion
+
+#pragma region Private Static Functions
+
+		static bool Compare(char current, const char delim[]);		
+
+#pragma endregion
+
 
 	};
 

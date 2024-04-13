@@ -233,6 +233,24 @@ su::~ukrString()
 
 #pragma endregion
 
+#pragma region Private Static Functions
+
+bool su::Compare(char current, const char delim[])
+{
+	size_t length = strlen(delim);
+
+	for (size_t i = 0; i < length; i++)
+	{
+		if (current == delim[i])
+			return true;
+	}
+
+	return false;
+}
+
+#pragma endregion
+
+
 #pragma region public static functions
 
 void su::ukrStrCopy(ukrString& src, ukrString dest, int start, int end)
@@ -297,6 +315,12 @@ std::ifstream& su::getLine(std::ifstream& ifs, su& output)
 	output.m_chars.allocate_memory_block(temp.c_str(), temp.size());
 
 	return ifs;
+}
+
+void su::Split(strings::ukrString& str, wordSet& word_Set,
+	const char delim[])
+{
+
 }
 
 #pragma endregion
