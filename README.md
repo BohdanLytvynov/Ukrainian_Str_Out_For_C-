@@ -13,7 +13,7 @@ In this project smart_allocator<T> is used to store the characters of the string
 
 ### DLL and Proper Linking
 For correct usage of this library dll file for Smart_allocator must be put to the place where the executable file is located. Smart_allocator.obj file is located in objfiles folder.
-For Linker .ob file must be used. 
+For Linker .obj file must be used. Also .pch file for UkrString must be provided.
 
 There is an ukrString.h file in the include folder. It can be used to provide all the opportunities of this structure. All the functions in this structure are commented properly.
 
