@@ -101,6 +101,12 @@ namespace strings
 
 #pragma region ukrString extension functions 
 
+		/// <summary>
+		/// Function that excepts ukrString object and splits it to the std::vector<std::vector<char>>
+		/// </summary>
+		/// <param name="str">ukrString input string</param>
+		/// <param name="word_Set">output</param>
+		/// <param name="delim">Array of chars</param>
 		static void Split(strings::ukrString& str, wordSet& word_Set,
 			const char delim[]);
 
@@ -258,6 +264,12 @@ namespace strings
 
 		/////////////////////Filestream operators
 
+		/// <summary>
+		/// Writes ukrString to some output file stream object
+		/// </summary>
+		/// <param name="ofs">output file stream object</param>
+		/// <param name="str">ukrString</param>
+		/// <returns>output file stream object</returns>
 		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str) 
 		{
 			size_t size = str.getLength();
@@ -270,6 +282,12 @@ namespace strings
 			return ofs;
 		}
 
+		/// <summary>
+		/// Writes ukrString to some output file stream object
+		/// </summary>
+		/// <param name="ofs">output file stream object</param>
+		/// <param name="str">ukrString</param>
+		/// <returns>output file stream object</returns>
 		friend std::ofstream& operator <<(std::ofstream& ofs, ukrString& str)
 		{
 			size_t size = str.getLength();
@@ -347,7 +365,12 @@ namespace strings
 #pragma endregion
 
 #pragma region Private Static Functions
-
+		/// <summary>
+		/// Compares current character with each character in the delim array
+		/// </summary>
+		/// <param name="current">Current character</param>
+		/// <param name="delim">Array of deliminators</param>
+		/// <returns>true if current character equal to the character in delim array</returns>
 		static bool Compare(char current, const char delim[]);		
 
 #pragma endregion

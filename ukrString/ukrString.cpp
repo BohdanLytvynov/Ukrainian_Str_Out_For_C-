@@ -12,6 +12,16 @@ size_t su::getLength() const
 	return m_chars.getSize();
 }
 
+void su::from_Word(const Word& word)
+{
+	if (word.size() == 0) return;
+
+	if (m_chars.isAllocated())
+		m_chars.deAllocate();
+
+	m_chars.allocate_memory_block(word);
+}
+
 void su::from_char_ptr(char* src, size_t length)
 {
 	if (length == 0) return;

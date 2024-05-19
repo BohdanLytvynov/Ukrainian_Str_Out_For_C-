@@ -5,8 +5,8 @@
 #include<string>
 #include<iostream>
 #include<fstream>
-#include"smart_alloc.h"
 #include<vector>
+#include"smart_alloc.h"
 
 namespace strings
 {	
@@ -23,6 +23,12 @@ namespace strings
 		/// <returns>Size of the string</returns>
 		size_t getLength() const;
 
+		/// <summary>
+		/// Creates ukrString from Word( std::vector<char> )
+		/// </summary>
+		/// <param name="word">Source Word</param>
+		void from_Word(const Word& word);
+		
 		/// <summary>
 		/// Creates ukrString from c-string
 		/// </summary>
