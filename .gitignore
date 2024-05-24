@@ -45,7 +45,7 @@ x64/
 !files_to_use/include/ukrString.h
 
 !files_to_use/libs/Debug/ukrString.lib
-!files_to_use/libs/ReleaseukrString.lib
+!files_to_use/libs/Release/ukrString.lib
 
 !files_to_use/obj files/Debug/ukrString.obj
 !files_to_use/obj files/Debug/pch.obj
