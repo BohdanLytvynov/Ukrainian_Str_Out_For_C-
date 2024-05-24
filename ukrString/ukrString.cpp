@@ -365,6 +365,44 @@ void su::Split(strings::ukrString& str, wordSet& word_Set,
 	}
 }
 
+void su::Split(const strings::ukrString& input_sentence,
+	std::vector<strings::ukrString>& word_set, const char delim[])
+{
+	bool delim_found = false;
+
+	size_t length = input_sentence.getLength();
+
+	Word word;
+
+	for (size_t i = 0; i < length; i++)//O(n * sizeof(delim))
+	{
+		if (!Compare(input_sentence[i], delim) || i == 0)//Space not found or we are at the begining create Word
+		{
+			word.push_back(input_sentence[i]);
+
+			delim_found = false;
+		}
+		else//delim_found found
+		{
+			if (!delim_found)
+			{
+				word_set.push_back(ukrString(word));
+
+				word.clear();
+			}
+
+			delim_found = true;
+		}
+
+		if (i == length - 1)//End reached
+		{
+			word_set.push_back(ukrString(word));
+
+			word.clear();
+		}
+	}
+}
+
 #pragma endregion
 
 
