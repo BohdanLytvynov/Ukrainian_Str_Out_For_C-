@@ -58,5 +58,23 @@ namespace ukrString_Tests
 
 			Assert::IsTrue(str1 != str2);
 		}
+
+		TEST_METHOD(IsSplitIsCorrect)
+		{
+			using namespace strings;
+
+			ukrString str2("Добре почуття");
+
+			ukrString res1("Добре");
+			ukrString res2("почуття");
+
+			std::vector<ukrString> word_set;
+
+			char delim[] = { ' ' };
+
+			ukrString::Split(str2, word_set, delim);
+
+			Assert::IsTrue(word_set[0] == res1 && word_set[1] == res2);
+		}
 	};
 }

@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ukrString", "ukrString\ukrString.vcxproj", "{53C2BED9-1EFE-4CCA-B34E-D646DA48D0F8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ukrainian_String_Out_For_C++", "Ukrainian_String_Out_For_C++\Ukrainian_String_Out_For_C++.vcxproj", "{6CB42BA9-DD90-45CF-BBB7-9BD8A65C3F32}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53C2BED9-1EFE-4CCA-B34E-D646DA48D0F8} = {53C2BED9-1EFE-4CCA-B34E-D646DA48D0F8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UkrainianStringTesting", "UkrainianStringTesting\UkrainianStringTesting.vcxproj", "{05091083-9DF1-4834-A0EC-D6FD387C2AAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53C2BED9-1EFE-4CCA-B34E-D646DA48D0F8} = {53C2BED9-1EFE-4CCA-B34E-D646DA48D0F8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
