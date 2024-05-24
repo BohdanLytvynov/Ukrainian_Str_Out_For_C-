@@ -2,14 +2,21 @@
 
 #define UKRSTRING_H
 
+//#ifdef UKRSTRING_EXPORTS
+//#define UKRSTRING_API __declspec(dllexport)
+//#else
+//#define UKRSTRING_API __declspec(dllimport)
+//#endif
+
 #include<string>
 #include<iostream>
 #include<fstream>
-#include"smart_alloc.h"
 #include<vector>
+#include"smart_alloc.h"
 
 namespace strings
 {	
+	
 	struct ukrString
 	{
 		using Word = std::vector<char>;
@@ -23,6 +30,12 @@ namespace strings
 		/// <returns>Size of the string</returns>
 		size_t getLength() const;
 
+		/// <summary>
+		/// Creates ukrString from Word( std::vector<char> )
+		/// </summary>
+		/// <param name="word">Source Word</param>
+		void from_Word(const Word& word);
+		
 		/// <summary>
 		/// Creates ukrString from c-string
 		/// </summary>
@@ -109,6 +122,15 @@ namespace strings
 		/// <param name="delim">Array of chars</param>
 		static void Split(strings::ukrString& str, wordSet& word_Set,
 			const char delim[]);
+		
+		/// <summary>
+		/// Function that converts ukrString sentence to the vector of the separated words
+		/// </summary>
+		/// <param name="input_sentence">Input sentence</param>
+		/// <param name="word_set">output</param>
+		/// <param name="delim">Array of chars</param>
+		static void Split(const strings::ukrString& input_sentence,
+			std::vector<strings::ukrString>& word_set, const char delim[]);
 
 #pragma endregion
 
@@ -270,7 +292,7 @@ namespace strings
 		/// <param name="ofs">output file stream object</param>
 		/// <param name="str">ukrString</param>
 		/// <returns>output file stream object</returns>
-		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str) 
+		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str)
 		{
 			size_t size = str.getLength();
 
@@ -303,7 +325,7 @@ namespace strings
 		/// <summary>
 		/// Converts ukrString to the std::string
 		/// </summary>
-		operator std::string() const;
+		operator  std::string() const;
 
 		/// <summary>
 		/// Indexer, allows to get read write access to the symbol of the ukrString

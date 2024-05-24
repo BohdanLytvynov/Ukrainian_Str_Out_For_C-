@@ -1,6 +1,5 @@
 #include"pch.h"
 #include"ukrString.h"
-
 #include"ukrString.h"
 
 using su = strings::ukrString;
