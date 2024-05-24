@@ -2,11 +2,12 @@
 #include"..\ukrString\ukrString.h"
 #include<crtdbg.h>
 #include<fstream>
+#include<conio.h>
 
 
 strings::ukrString Returning()
 {
-	return strings::ukrString("Тест");	
+	return strings::ukrString("Тест");
 }
 
 void DisposingTest()
@@ -29,8 +30,6 @@ void ExcepTest()
 	catch (const std::exception&)
 	{
 		return;
-
-
 	}
 }
 
@@ -75,6 +74,11 @@ int main()
 
 	read.close();
 
-	
+	std::cout << "Press any key to finish" << std::endl;
 
+	_getch();
+
+	return EXIT_SUCCESS;
 }
+
+

@@ -10,6 +10,7 @@
 
 namespace strings
 {	
+
 	struct ukrString
 	{
 		using Word = std::vector<char>;
@@ -115,6 +116,17 @@ namespace strings
 		/// <param name="delim">Array of chars</param>
 		static void Split(strings::ukrString& str, wordSet& word_Set,
 			const char delim[]);
+
+		
+		/// <summary>
+		/// Function that converts ukrString sentence to the vector of the separated words
+		/// </summary>
+		/// <param name="input_sentence">Input sentence</param>
+		/// <param name="word_set">output</param>
+		/// <param name="delim">Array of chars</param>
+		static void Split(const strings::ukrString& input_sentence,
+			std::vector<strings::ukrString>& word_set, const char delim[]);
+
 
 #pragma endregion
 
@@ -276,7 +288,8 @@ namespace strings
 		/// <param name="ofs">output file stream object</param>
 		/// <param name="str">ukrString</param>
 		/// <returns>output file stream object</returns>
-		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str) 
+
+		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str)
 		{
 			size_t size = str.getLength();
 
@@ -309,7 +322,9 @@ namespace strings
 		/// <summary>
 		/// Converts ukrString to the std::string
 		/// </summary>
-		operator std::string() const;
+
+		operator  std::string() const;
+
 
 		/// <summary>
 		/// Indexer, allows to get read write access to the symbol of the ukrString

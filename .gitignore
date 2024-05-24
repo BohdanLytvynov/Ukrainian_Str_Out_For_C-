@@ -37,24 +37,20 @@
 # Exe_files
 x64/
 
-#Files for using library. 
-!files_to_use/Debug/pch.obj
-!files_to_use/Debug/ukrString.dll
-!files_to_use/Debug/ukrString.obj
+
+# Compiled ready files
+
+!files_to_use/dlls/Debug/ukrString.dll
+!files_to_use/dlls/Release/ukrString.dll
 
 !files_to_use/include/ukrString.h
 
-!files_to_use/Release/pch.obj
-!files_to_use/Release/ukrString.dll
-!files_to_use/Release/ukrString.obj
+!files_to_use/libs/Debug/ukrString.lib
+!files_to_use/libs/Release/ukrString.lib
 
-!dlls/smart_alloc_dll.dll
+!files_to_use/obj files/Debug/ukrString.obj
+!files_to_use/obj files/Debug/pch.obj
 
-!objfiles/Smart_Allocator.obj
+!files_to_use/obj files/Release/ukrString.obj
+!files_to_use/obj files/Release/pch.obj
 
-!include/smart_alloc.h
-
-!files_to_use/smart_alloc/pch.obj
-!files_to_use/smart_alloc/smart_alloc.h
-!files_to_use/smart_alloc/smart_alloc_dll.dll
-!files_to_use/smart_alloc/Smart_Allocator.obj
