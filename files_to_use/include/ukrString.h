@@ -8,10 +8,22 @@
 #include<vector>
 #include"smart_alloc.h"
 
+#pragma region Exporter
+
+#ifdef UKRSTRING_EXPORTS
+#define UKRSTRING_DLL_API __declspec(dllexport)
+#else
+#define UKRSTRING_DLL_API __declspec(dllimport)
+#endif // UKRSTRING_EXPORTS
+
+
+#pragma endregion
+
+
 namespace strings
 {	
-
-	struct ukrString
+	
+	struct UKRSTRING_DLL_API ukrString
 	{
 		using Word = std::vector<char>;
 
@@ -109,14 +121,13 @@ namespace strings
 #pragma region ukrString extension functions 
 
 		/// <summary>
-		/// Function that excepts ukrString object and splits it to the std::vector<std::vector<char>>
+		/// Function that converts ukrString sentence to the vector of the separated Words in a form of vector<char>
 		/// </summary>
-		/// <param name="str">ukrString input string</param>
-		/// <param name="word_Set">output</param>
+		/// <param name="input_sentence">Input sentence</param>
+		/// <param name="word_set">output</param>
 		/// <param name="delim">Array of chars</param>
 		static void Split(strings::ukrString& str, wordSet& word_Set,
 			const char delim[]);
-
 		
 		/// <summary>
 		/// Function that converts ukrString sentence to the vector of the separated words
@@ -126,7 +137,6 @@ namespace strings
 		/// <param name="delim">Array of chars</param>
 		static void Split(const strings::ukrString& input_sentence,
 			std::vector<strings::ukrString>& word_set, const char delim[]);
-
 
 #pragma endregion
 
@@ -201,9 +211,7 @@ namespace strings
 
 			strFiller(obj, this);
 		}
-
-		
-		
+				
 #pragma endregion
 
 #pragma region Operators
@@ -288,7 +296,6 @@ namespace strings
 		/// <param name="ofs">output file stream object</param>
 		/// <param name="str">ukrString</param>
 		/// <returns>output file stream object</returns>
-
 		friend std::ofstream& operator <<(std::ofstream& ofs, const ukrString& str)
 		{
 			size_t size = str.getLength();
@@ -322,9 +329,7 @@ namespace strings
 		/// <summary>
 		/// Converts ukrString to the std::string
 		/// </summary>
-
 		operator  std::string() const;
-
 
 		/// <summary>
 		/// Indexer, allows to get read write access to the symbol of the ukrString
@@ -366,7 +371,6 @@ namespace strings
 		/// <returns></returns>
 		bool operator != (const ukrString& other);
 
-
 #pragma endregion
 
 
@@ -395,8 +399,6 @@ namespace strings
 		static bool Compare(char current, const char delim[]);		
 
 #pragma endregion
-
-
 	};
 
 
