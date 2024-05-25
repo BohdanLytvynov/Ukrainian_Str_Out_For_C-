@@ -12,10 +12,16 @@ Here I used the RAII paradigm structure, called smart_allocator<T>, which is sim
 In this project smart_allocator<T> is used to store the characters of the string in a form of the c-string. 
 
 ### DLL and Proper Linking
-For correct usage of this library dll file for Smart_allocator must be put to the place where the executable file is located. Smart_allocator.obj file is located in objfiles folder.
-For Linker .obj file must be used. Also .pch file for UkrString must be provided.
+To be able to use this dll library you should use .dll file and .lib file. 
 
-There is an ukrString.h file in the include folder. It can be used to provide all the opportunities of this structure. All the functions in this structure are commented properly.
+To use it you need:
+- ukrString.h,
+- ukrString.dll,
+- ukrString.lib files.
+
+1. ukrString.h has all functions and structures definitions to be used in external projects. For that include this .h file to your external project. 
+2. ukrString.dll must be placed near your .exe file.
+3. And you need to provide a propriate path for Linker to ukrString.lib file.
 
 ### Tests
 All the units tests were performed. Their resuls can be seen in a test project. 
