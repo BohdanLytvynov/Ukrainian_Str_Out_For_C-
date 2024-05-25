@@ -17,7 +17,7 @@ To be able to use this dll library you should use .dll file and .lib file.
 To use it you need:
 - ukrString.h,
 - ukrString.dll,
-- ukrString.lib files.
+- ukrString.lib.
 
 1. ukrString.h has all functions and structures definitions to be used in external projects. For that include this .h file to your external project. 
 2. ukrString.dll must be placed near your .exe file.
